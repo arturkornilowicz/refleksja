@@ -29,7 +29,7 @@ public class App
         }
     }
 
-    String wCudzysłowie(String s) {
+    String wCudzyslowie(String s) {
         return "\"" + s + "\"";
     }
 
@@ -41,13 +41,13 @@ public class App
         if (parameters.length > 0) {
             for (i = 0; i < method.getParameterCount() - 1; i++) {
                 if (parameters[i].getType().getSimpleName().equals("String")) {
-                    wynik += wCudzysłowie(args[i]) + ",";
+                    wynik += wCudzyslowie(args[i]) + ",";
                 } else {
                     wynik += args[i] + ",";
                 }
             }
             if (parameters[i].getType().getSimpleName().equals("String")) {
-                wynik += wCudzysłowie(args[i]);
+                wynik += wCudzyslowie(args[i]);
             } else {
                 wynik += args[i];
             }
@@ -58,7 +58,7 @@ public class App
     String spodziewanyWynik(Method method) {
         String wynik = "";
         if (method.getReturnType().getSimpleName().equals("String")) {
-            wynik += wCudzysłowie(method.getAnnotation(TestMetody.class).spodziewany_wynik());
+            wynik += wCudzyslowie(method.getAnnotation(TestMetody.class).spodziewany_wynik());
         } else {
             wynik += method.getAnnotation(TestMetody.class).spodziewany_wynik();
         }
@@ -84,13 +84,13 @@ public class App
         int i;
         for (i = 0; i < fields.length-1; i++) {
             if (fields[i].getType().getSimpleName().equals("String")) {
-                wynik += wCudzysłowie(c.getAnnotation(TestKlasy.class).wartosci_pol()[i]) + ",";
+                wynik += wCudzyslowie(c.getAnnotation(TestKlasy.class).wartosci_pol()[i]) + ",";
             } else {
                 wynik += c.getAnnotation(TestKlasy.class).wartosci_pol()[i];
             }
         }
         if (fields[i].getType().getSimpleName().equals("String")) {
-            wynik += wCudzysłowie(c.getAnnotation(TestKlasy.class).wartosci_pol()[i]) + ",";
+            wynik += wCudzyslowie(c.getAnnotation(TestKlasy.class).wartosci_pol()[i]) + ",";
         } else {
             wynik += c.getAnnotation(TestKlasy.class).wartosci_pol()[i];
         }
@@ -116,7 +116,7 @@ public class App
             generujTest(method);
         }
 
-        System.out.println("}");
+        System.out.println("}\n");
     }
 
     public static void main( String[] args )
